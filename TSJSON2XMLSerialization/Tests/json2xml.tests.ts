@@ -238,3 +238,55 @@ test("Test Enclosed Array Object Array Root", function () {
     equal(xml, '<someRoot><0><prop1>val1</prop1><address><streetAddress>21 2nd Street</streetAddress><city>New York</city><state>NY</state><postalCode>10021</postalCode></address></0></someRoot>',
         'Result should be XML representation of simple JSON object, 2 props.');
 });
+
+test("Test Enclosed Array Object No Array Root", function () {
+    // Arrange
+    var target = new JSON2XMLLib.Converter();
+    var obj = JSON.parse('{"prop1": "val1", "address": { "streetAddress": "21 2nd Street", "city": "New York", "state": "NY", "postalCode": "10021" }}');
+
+    // Act
+    var xml = target.convert(obj, { rootName: 'someRoot' });
+
+    // Assert
+    equal(xml, '<someRoot><prop1>val1</prop1><address><streetAddress>21 2nd Street</streetAddress><city>New York</city><state>NY</state><postalCode>10021</postalCode></address></someRoot>',
+        'Result should be XML representation of simple JSON object, 2 props.');
+});
+
+test("Test Enclosed Array Object Array Root Array Name", function () {
+    // Arrange
+    var target = new JSON2XMLLib.Converter();
+    var obj = JSON.parse('[{"prop1": "val1", "address": { "streetAddress": "21 2nd Street", "city": "New York", "state": "NY", "postalCode": "10021" }}]');
+
+    // Act
+    var xml = target.convert(obj, { rootName: 'someRoot', objectInArrayName: 'arrName' });
+
+    // Assert
+    equal(xml, '<someRoot><arrName><prop1>val1</prop1><address><streetAddress>21 2nd Street</streetAddress><city>New York</city><state>NY</state><postalCode>10021</postalCode></address></arrName></someRoot>',
+        'Result should be XML representation of simple JSON object, 2 props.');
+});
+
+test("Test Enclosed Array Object No Array Root Array Name", function () {
+    // Arrange
+    var target = new JSON2XMLLib.Converter();
+    var obj = JSON.parse('{"prop1": "val1", "address": { "streetAddress": "21 2nd Street", "city": "New York", "state": "NY", "postalCode": "10021" }}');
+
+    // Act
+    var xml = target.convert(obj, { rootName: 'someRoot', objectInArrayName: 'arrName' });
+
+    // Assert
+    equal(xml, '<someRoot><prop1>val1</prop1><address><streetAddress>21 2nd Street</streetAddress><city>New York</city><state>NY</state><postalCode>10021</postalCode></address></someRoot>',
+        'Result should be XML representation of simple JSON object, 2 props.');
+});
+
+test("Test Enclosed Array Object No Array Root Array Name", function () {
+    // Arrange
+    var target = new JSON2XMLLib.Converter();
+    var obj = JSON.parse('[{"prop1": "val1", "address": { "streetAddress": "21 2nd Street", "city": "New York", "state": "NY", "postalCode": "10021" }}]');
+
+    // Act
+    var xml = target.convert(obj, { rootName: 'someRoot' });
+
+    // Assert
+    equal(xml, '<someRoot><0><prop1>val1</prop1><address><streetAddress>21 2nd Street</streetAddress><city>New York</city><state>NY</state><postalCode>10021</postalCode></address></0></someRoot>',
+        'Result should be XML representation of simple JSON object, 2 props.');
+});
