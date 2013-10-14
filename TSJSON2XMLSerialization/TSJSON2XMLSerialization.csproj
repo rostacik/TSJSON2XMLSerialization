@@ -38,23 +38,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Lib\json2xml.ts" />
@@ -64,28 +49,16 @@
     <Content Include="Lib\json2xml.js.map">
       <DependentUpon>json2xml.js</DependentUpon>
     </Content>
-    <Content Include="Styles\app.css" />
+    <Content Include="Scripts\typings\qunit\qunit.d.ts" />
+    <TypeScriptCompile Include="Tests\json2xml.tests.ts" />
     <Content Include="Tests\Tests.html" />
-    <TypeScriptCompile Include="Tests\UnitTests.ts" />
-    <Content Include="Tests\UnitTests.js">
-      <DependentUpon>UnitTests.ts</DependentUpon>
-    </Content>
-    <Content Include="Tests\UnitTests.js.map">
-      <DependentUpon>UnitTests.js</DependentUpon>
-    </Content>
-    <Content Include="tsUnit\tsUnit.ts" />
-    <Content Include="tsUnit\tsUnit.js">
-      <DependentUpon>tsUnit.ts</DependentUpon>
-    </Content>
-    <Content Include="tsUnit\tsUnit.js.map">
-      <DependentUpon>tsUnit.js</DependentUpon>
-    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
