@@ -17,11 +17,11 @@ var JSON2XMLLib;
                 if (obj.hasOwnProperty(i)) {
                     var value = obj[i], type = typeof value;
 
-                    if (value instanceof Array && type == 'object') {
+                    if (value instanceof Array && type === 'object') {
                         for (var sub in value) {
                             xml += this.convert(value[sub]);
                         }
-                    } else if (value instanceof Object && type == 'object') {
+                    } else if (value instanceof Object && type === 'object') {
                         if (isNaN(i)) {
                             xml += this.tag(i) + this.convert(value) + this.tag(i, {
                                 closing: 1
