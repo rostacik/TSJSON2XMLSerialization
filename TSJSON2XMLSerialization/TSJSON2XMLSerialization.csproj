@@ -49,7 +49,7 @@
     <Content Include="Lib\json2xml.js.map">
       <DependentUpon>json2xml.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\typings\qunit\qunit.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\qunit\qunit.d.ts" />
     <TypeScriptCompile Include="Tests\json2xml.tests.ts" />
     <Content Include="Tests\Tests.html" />
     <Content Include="Web.config" />

@@ -2,6 +2,8 @@ var JSON2XMLLib;
 (function (JSON2XMLLib) {
     "use strict";
 
+    
+
     /** converter class implementation */
     var Converter = (function () {
         function Converter() {
@@ -22,11 +24,13 @@ var JSON2XMLLib;
                             xml += this.convert(value[sub]);
                         }
                     } else if (value instanceof Object && type === 'object') {
+                        //normal text node
                         if (isNaN(i)) {
                             xml += this.tag(i) + this.convert(value) + this.tag(i, {
                                 closing: 1
                             });
                         } else {
+                            //wrap with this name if defined
                             if ((params !== undefined) && (params !== null) && (params.objectInArrayName !== undefined) && (params.objectInArrayName !== null) && (params.objectInArrayName !== '')) {
                                 xml += this.tagConvertValueTag(params.objectInArrayName, value);
                             } else {
